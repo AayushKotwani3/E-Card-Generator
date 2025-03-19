@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+}
+#main,#canvas{
+    border: 2px solid black;
+}
+#canvas{
+    width: 60%;
+    margin: auto;
+    height: 800px;
+}
+#form-body{
+    width: 375px;
+    height: 450px;
+    margin: auto;
+    border: 1px solid gray;
+    margin-top: 175px;
+    padding: 15px;
+}
