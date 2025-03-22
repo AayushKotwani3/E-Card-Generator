@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/style.css"/>
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="canvas">
+        <div id="form-body" style="width: 475px; height: 505px; margin-top: 125px;">
+            <h1>Card Request Details</h1>
+            <label for="name" class="form-label">Fullname</label>
+            <input id="name" class="form-control" type="text" value="Aayush Kotwani" aria-label="readonly input example" readonly>
+            <label for="type-of-card" class="form-label">Type of Card</label>
+            <input id="type-of-card" class="form-control" type="text" value="Type of card" aria-label="readonly input example" readonly>
+            <label for="detail1" class="form-label">Detail1</label>
+            <input id="detail1" class="form-control" type="text" value="Type of card" aria-label="readonly input example" readonly>
+            <label for="detail2" class="form-label">Detail2</label>
+            <input id="name" class="form-control" type="text" value="Type of card" aria-label="readonly input example" readonly>
+
+            <form action="" method="post">
+            <div class="mb-3">
+                <label for="update-status" class="form-label">Update Status</label>
+                <select class="form-select" aria-label="Default select example" id="update-status" name="updated-status">
+                    <option value="aadhar">Under_Verification</option>
+                    <option value="pan">verified</option>
+                  </select>
+              </div>
+              
+              <div style="text-align: center;">
+                <input type="submit" class="btn btn-primary" value="Update Status" style="margin-top: 20px;">
+                <br>
+                
+              </div>
+            </form>
+            </div>
+          </div>
+    </div>
+      
+    </div>
+  </body>
+</html>

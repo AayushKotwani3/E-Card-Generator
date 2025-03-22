@@ -8,7 +8,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="../static/style.css"/>
     <style>
         #form-body{
             height: 337px;
@@ -21,20 +21,21 @@
         Hello World
         <div id="form-body" >
             <h1>Login Form</h1>
+            <form action="" method="post">
             <div class="mb-3">
                 <label for="Username-login" class="form-label">Username</label>
-                <input type="text" class="form-control" id="Username-login" placeholder="Aayushk3">
+                <input type="text" class="form-control" id="Username-login" placeholder="Aayushk3" name="username">
               </div>
               <div class="mb-3">
                 <label for="Password-login" class="form-label">Password</label>
-                <input type="password" class="form-control" id="Password-login" >
+                <input type="password" class="form-control" id="Password-login" name="password">
               </div>
               <div style="text-align: center;">
-                <button type="button" class="btn btn-primary">Login</button>
+                <input type="submit" class="btn btn-primary" value="Login">
                 <br>
-                Are you a new user? <a href="/templates/Register.html">Register</a>
+                Are you a new user? <a href="Register.html">Register</a>
               </div>
-
+            </form>
             </div>
           </div>
     </div>

@@ -8,7 +8,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="../static/style.css"/>
   </head>
   <body>
     <div id="main">
@@ -16,24 +16,25 @@
         Hello World
         <div id="form-body">
             <h1>Registration Form</h1>
+            <form action="" method="post">
             <div class="mb-3">
                 <label for="Username-registration" class="form-label">Username</label>
-                <input type="text" class="form-control" id="Username-registration" placeholder="Aayushk3">
+                <input type="text" class="form-control" id="Username-registration" placeholder="Aayushk3" name="username">
               </div>
               <div class="mb-3">
                 <label for="Email-registration" class="form-label">Email</label>
-                <input type="email" class="form-control" id="Email-registration" placeholder="Aayushk3">
+                <input type="email" class="form-control" id="Email-registration" placeholder="Aayushk3" name="email">
               </div>
               <div class="mb-3">
                 <label for="Password-registration" class="form-label">Password</label>
-                <input type="password" class="form-control" id="Password-registration" >
+                <input type="password" class="form-control" id="Password-registration" name="password">
               </div>
               <div style="text-align: center;">
-                <button type="button" class="btn btn-primary">Register</button>
+                <input type="submit" class="btn btn-primary" value="Register">
                 <br>
-                Already Registerd? <a href="/templates/login.html">Login</a>
+                Already Registerd? <a href="login.html">Login</a>
               </div>
-
+            </form>
             </div>
           </div>
     </div>
