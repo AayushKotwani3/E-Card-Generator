@@ -1,0 +1,26 @@
+Pan:
+
+fullname
+fathers name
+dob
+image
+
+driving license
+
+fullname
+fathers name
+dob
+address
+pincode
+image
+
+Voter id
+fullname
+fathers name
+gender
+dob
+image
+
+
+
+
