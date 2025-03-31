@@ -16,15 +16,15 @@
   <body>
     <div id="main">
       <div id="canvas">
-        <div id="form-body" style="width: 550px; height: 475px; margin-top: 96px;">
-            <h1>Add Pan Card Details</h1>
+        <div id="form-body" style="width: 550px; height: 678px; margin-top: 51px;">
+            <h1>Add Driving-License Details</h1>
             <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="Aadhar-name" class="form-label">Enter Your name:</label>
                 <input type="text" class="form-control" id="Aadhar name" placeholder="Aayush Kotwani" name="Aadhar_name">
             </div>
             <div class="mb-3">
-                <label for="Aadhar-father-name" class="form-label">Enter Your Father's name:</label>
+                <label for="Driving-License-father-name" class="form-label">Enter Your Father's name:</label>
                 <input type="text" class="form-control" id="Aadhar-father-name" placeholder="Aayush Kotwani" name="father_name">
             </div>
            
@@ -32,6 +32,15 @@
                 <label for="Date-of-birth" class="form-label">Enter Your Date of Birth</label>
                 <input type="date" class="form-control" id="Date-of-birth" name="dob">
             </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Address:</label>
+                <textarea class="form-control" id="Address" rows="3"></textarea>
+              </div>
+              <div class="mb-3" id="pincode">
+                <label style="" for="Pin-code" class="form-label">Enter Your Pincode:</label>
+                <input type="text" class="form-control" id="pin-code" placeholder="Aayush Kotwani" name="pincode">
+            </div>  
+
               <div class="mb-3"></div>
               <label for="ImageUpload">Upload your image here</label>
               <input type="file" class="form-control" name="image" id="imageupload" accept="image/*">
