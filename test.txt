@@ -1,0 +1,41 @@
+# creation
+
+>>> from app import create_app, db
+>>> from Application.models import User
+>>> 
+>>> app = create_app()  # ✅ define the app before using it
+>>> 
+>>> with app.app_context():
+...     user2 = User(username='devilyash', email='yash@gmail.com', password='123564') 
+...     db.session.add(user2)
+...     db.session.commit()
+
+#update
+
+>>> from app import create_app, db
+>>> from Application.models import User
+>>>
+>>> app = create_app()  # ✅ define the app before using it
+>>>
+>>> with app.app_context():
+...     user=User.query.filter_by(username='devilyash').first()
+...     user.username='devilrahul'  
+...     db.session.commit()
+
+#delete
+>>> from app import create_app, db
+>>> from Application.models import User
+>>> app = create_app()
+>>> with app.app_context():
+...     user=User.query.get(3)
+...     db.session.delete(user)
+...     db.session.commit()
+
+accessing
+
+>>> with app.app_context():
+...     users=User.query.all()
+... 
+>>> user1=users[0]
+>>> user1.email  
+'admin@boss.com'
