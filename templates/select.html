@@ -16,10 +16,9 @@
   <body>
     <div id="main">
       <div id="canvas">
-        Hello World
         <div id="form-body" style="width: 350px; height: 250px; margin-top: 270px;">
             <h1>Select Card</h1>
-            <form action="" method="post">
+            <form action="/request_card/{{user_id}}" method="post">
             <div class="mb-3">
                 <label for="select-card" class="form-label">Available Cards</label>
                 <select class="form-select" aria-label="Default select example" id="select-card" name="selectedcard">
