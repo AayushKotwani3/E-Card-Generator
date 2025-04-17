@@ -8,7 +8,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../static/style.css"/>
+    <link rel="stylesheet" href="/static/style.css"/>
     <style>
     
     </style>
@@ -18,32 +18,28 @@
       <div id="canvas">
         <div id="form-body" style="width: 500px; height: 674px; margin-top: 51px;">
             <h1>Add Voter ID Details</h1>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="/request/voterid/{{user_id}}" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <label for="Aadhar-name" class="form-label">Enter Your name:</label>
-                <input type="text" class="form-control" id="Aadhar name" placeholder="Aayush Kotwani" name="Aadhar_name">
+                <label for="Voter_name" class="form-label">Enter Your name:</label>
+                <input type="text" class="form-control" id="Voter_name" placeholder="Aayush Kotwani" name="voter_id_name">
             </div>
             <div class="mb-3">
-                <label for="Father-name" class="form-label">Enter Your Father's name:</label>
-                <input type="text" class="form-control" id="Aadhar name" placeholder="Aayush Kotwani" name="Father_name">
+                <label for="Father-name" class="form-label">Enter Your Ward name:</label>
+                <input type="text" class="form-control" id="Ward_name" placeholder="Sardar patel ward" name="ward_name">
             </div>
             <div class="mb-3">
-                <label for="select-card" class="form-label">Select Your Gender</label>
-                <select class="form-select" aria-label="Default select example" id="select-card" name="selectedcard">
+                <label for="select-gender" class="form-label">Select Your Gender</label>
+                <select class="form-select" aria-label="Default select example" id="select-gender" name="gender">
                     <option selected>Open this select menu</option>
-                    <option value="aadhar">Male</option>
-                    <option value="pan">Female</option>
-                    <option value="driving">Others</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
                   </select>
               </div>
               <div class="mb-3">
                 <label for="Date-of-birth" class="form-label">Enter Your Date of Birth</label>
                 <input type="date" class="form-control" id="Date-of-birth" name="dob">
             </div>
-            <div class="mb-3">
-                <label for="Address" class="form-label">Address:</label>
-                <textarea class="form-control" id="Address" rows="3"></textarea>
-              </div>
               <div class="mb-3"></div>
               <label for="ImageUpload">Upload your image here</label>
               <input type="file" class="form-control" name="image" id="imageupload" accept="image/*">
