@@ -11,7 +11,7 @@ def login():
         if this_user:
             if this_user.password==password: #lhs is from db table and rhs is form submission value
                  if this_user.type=='admin':
-                    return render_template('admin_dashboard.html',this_user=this_user)
+                    return redirect('/admin')
                  else:
                     return render_template('user_dashboard.html',this_user=this_user)
             else:
@@ -35,6 +35,13 @@ def register():
             db.session.commit()
             return redirect('/login')
     return render_template('Register.html')
+
+@app.route('/admin')
+def admin_dash():
+    this_user=User.query.filter_by(type='admin').first()
+    all_info=Info.query.all()
+    return render_template('admin_dashboard.html',this_user=this_user,all_info=all_info)
+
 
 @app.route('/request_card/<int:user_id>',methods=["GET","POST"])
 def request_cards(user_id):

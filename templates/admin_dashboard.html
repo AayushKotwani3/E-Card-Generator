@@ -15,10 +15,10 @@
   </head>
   <body>
     <div id="main">
-      <div id="canvas">
+      <div id="canvas" class="overflow-auto">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Welcome {{username}}</a>
+              <a class="navbar-brand" href="#">Welcome {{this_user.username}}</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -32,9 +32,9 @@
               </div>
             </div>
           </nav>
-          <div id="content">
+          <div id="content" >
             <h3 class="headings">Requested cards</h3>
-            <div class="table">
+            <div id="table" class="border" style="max-height: 200px; overflow-y: scroll;">
             <table class="table">
                 <thead>
                   <tr>
@@ -46,30 +46,74 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for info in all_info %}
+                    {% if info.attribute_name == "Status" and info.attribute_value == "requested" %}
+                      <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{info.card_name}}</td>
+                        <td>{{info.creator.username}}</td>
+                        <td>Requested</td>
+                        <td class="d-flex justify-content-center"><a href="update_status.html" type="button" class="btn btn-primary mx-5">Review</a>
+                        <!-- <a href=""type="button" class="btn btn-primary">Generate</a></td> -->
+                      </tr>
+                    {% endif %}  
+                  {% endfor %}  
+                </tbody>
+              </table>
+              </div>
+              <h3 class="headings">Cards Under Verification</h3>
+              <div id="table" class="border" style="max-height: 150px; overflow-y: scroll;">
+            <table class="table">
+                <thead>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Aadhar</td>
-                    <td>User 1</td>
-                    <td>Requested</td>
-                    <td class="d-flex justify-content-center"><a href="" type="button" class="btn btn-primary mx-5">Update Status</a>
-                    <a href=""type="button" class="btn btn-primary">Generate</a></td>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type of card</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Current status</th>
+                    <th scope="col" class="text-center">Action</th>
                   </tr>
+                </thead>
+                <tbody>
+                  {% for info in all_info %}
+                    {% if info.attribute_name == "Status" and info.attribute_value == "under_verification" %}
+                      <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{info.card_name}}</td>
+                        <td>{{info.creator.username}}</td>
+                        <td>Under Verification</td>
+                        <td class="d-flex justify-content-center"><a href="update_status.html" type="button" class="btn btn-primary mx-5">Verify</a>
+                        <!-- <a href=""type="button" class="btn btn-primary">Generate</a></td> -->
+                      </tr>
+                    {% endif %}  
+                  {% endfor %}  
+                </tbody>
+              </table>
+              </div>
+              <h3 class="headings">Verified cards</h3>
+              <div id="table" class="border" style="max-height: 150px; overflow-y: scroll;">
+            <table class="table">
+                <thead>
                   <tr>
-                    <th scope="row">2</th>
-                    <td>Pan Card</td>
-                    <td>User 2</td>
-                    <td>Under verification</td>
-                    <td class="d-flex justify-content-center"><a href="" type="button" class="btn btn-primary mx-5">Update Status</a>
-                    <a href=""type="button" class="btn btn-primary">Generate</a></td>
+                    <th scope="col">ID</th>
+                    <th scope="col">Type of card</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Current status</th>
+                    <th scope="col" class="text-center">Action</th>
                   </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Driving License</td>
-                    <td>User 3</td>
-                    <td>Verified</td>
-                    <td class="d-flex justify-content-center"><a href="" type="button" class="btn btn-primary mx-5">Update Status</a>
-                    <a href=""type="button" class="btn btn-primary">Generate</a></td>
-                  </tr>
+                </thead>
+                <tbody>
+                  {% for info in all_info %}
+                    {% if info.attribute_name == "Status" and info.attribute_value == "verified" %}
+                      <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{info.card_name}}</td>
+                        <td>{{info.creator.username}}</td>
+                        <td>Verified</td>
+                        <td class="d-flex justify-content-center"><a href="update_status.html" type="button" class="btn btn-primary mx-5">Generate</a>
+                        <!-- <a href=""type="button" class="btn btn-primary">Generate</a></td> -->
+                      </tr>
+                    {% endif %}  
+                  {% endfor %}  
                 </tbody>
               </table>
               </div>
