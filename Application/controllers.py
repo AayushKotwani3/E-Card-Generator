@@ -13,7 +13,7 @@ def login():
                  if this_user.type=='admin':
                     return redirect('/admin')
                  else:
-                    return render_template('user_dashboard.html',this_user=this_user)
+                    return redirect(f'/home/{this_user.id}')
             else:
                 return 'Incorrect Password'
         else:
