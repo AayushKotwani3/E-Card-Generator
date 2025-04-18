@@ -42,6 +42,11 @@ def admin_dash():
     all_info=Info.query.all()
     return render_template('admin_dashboard.html',this_user=this_user,all_info=all_info)
 
+@app.route('/home/<int:user_id>')
+def user_dashboard(user_id):
+    this_user=User.query.filter_by(id=user_id).first()
+    return render_template('user_dashboard.html',this_user=this_user)
+
 
 @app.route('/request_card/<int:user_id>',methods=["GET","POST"])
 def request_cards(user_id):

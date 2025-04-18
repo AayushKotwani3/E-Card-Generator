@@ -76,21 +76,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Aadhar</td>
-                    <td class="d-flex justify-content-center">Under_Verification</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Pan Card</td>
-                    <td class="d-flex justify-content-center">Requested</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Driving License</td>
-                    <td class="d-flex justify-content-center">Verified</td>
-                  </tr>
+                  {% for info in this_user.details %}
+                    {% if info.attribute_name=='Status' %}
+                      <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{info.card_name}}</td>
+                        <td class="d-flex justify-content-center">{{info.attribute_value}}</td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}    
                 </tbody>
               </table>
             </div>
