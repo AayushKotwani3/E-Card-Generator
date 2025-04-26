@@ -15,23 +15,32 @@
   </head>
   <body>
     <div id="main">
-      <div id="canvas">
-        <div id="form-body" style="width: 475px; height: 505px; margin-top: 125px;">
+      <div id="canvas" class="overflow-auto">
+        <div id="form-body" style="width: 475px; height: 575px; margin-top: 90px;  overflow-y: scroll;">
             <h1>Card Request Details</h1>
-            <label for="name" class="form-label">Fullname</label>
-            <input id="name" class="form-control" type="text" value="Aayush Kotwani" aria-label="readonly input example" readonly>
-            <label for="type-of-card" class="form-label">Type of Card</label>
+            {% for detail in details%}
+              
+              <label for="name" class="form-label">{{detail.attribute_name}}</label>
+                {% if detail.attribute_name =='image'%}
+                  <br>
+                  <img src="/static/{{detail.attribute_value}}" alt="user image" height="100" width="100">
+                  <br>
+                {% else %}  
+                  <input id="name" class="form-control" type="text" value='{{detail.attribute_value}}' aria-label="readonly input example" readonly>
+                {% endif %}  
+            {% endfor %}
+            <!-- <label for="type-of-card" class="form-label">Type of Card</label>
             <input id="type-of-card" class="form-control" type="text" value="Type of card" aria-label="readonly input example" readonly>
             <label for="detail1" class="form-label">Detail1</label>
             <input id="detail1" class="form-control" type="text" value="Type of card" aria-label="readonly input example" readonly>
             <label for="detail2" class="form-label">Detail2</label>
-            <input id="name" class="form-control" type="text" value="Type of card" aria-label="readonly input example" readonly>
+            <input id="name" class="form-control" type="text" value="Type of card" aria-label="readonly input example" readonly> -->
 
-            <form action="" method="post">
+            <form action="/update_status/{{card}}/{{user_id}}" method="POST">
             <div class="mb-3">
                 <label for="update-status" class="form-label">Update Status</label>
-                <select class="form-select" aria-label="Default select example" id="update-status" name="updated-status">
-                    <option value="under_Verification">Under_Verification</option>
+                <select class="form-select" aria-label="Default select example" id="update-status" name="status">
+                    <option value="under_verification">Under_Verification</option>
                     <option value="verified">Verified</option>
                   </select>
               </div>

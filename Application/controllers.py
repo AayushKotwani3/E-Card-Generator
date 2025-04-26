@@ -152,3 +152,15 @@ def card_details(card,user_id):
             db.session.commit()
             return render_template('user_dashboard.html',this_user=this_user)
         return render_template('voter-id.html',user_id=user_id)
+
+@app.route('/update_status/<card>/<int:user_id>',methods=['GET','POST'])
+def update_status(card,user_id):
+    details=Info.query.filter_by(user_id=user_id,card_name=card).all()
+    detail=Info.query.filter_by(user_id=user_id,card_name=card,attribute_name='Status').first()
+    if request.method=='POST':
+        status=request.form.get('status')
+        detail.attribute_value=status
+        db.session.commit()
+        return redirect('/admin')
+    return render_template('update_status.html',user_id=user_id,card=card,details=details)
+

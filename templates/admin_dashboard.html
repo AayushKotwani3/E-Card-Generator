@@ -53,7 +53,7 @@
                         <td>{{info.card_name}}</td>
                         <td>{{info.creator.username}}</td>
                         <td>Requested</td>
-                        <td class="d-flex justify-content-center"><a href="update_status.html" type="button" class="btn btn-primary mx-5">Review</a>
+                        <td class="d-flex justify-content-center"><a href="/update_status/{{info.card_name}}/{{info.user_id}}" type="button" class="btn btn-primary mx-5">Review</a>
                         <!-- <a href=""type="button" class="btn btn-primary">Generate</a></td> -->
                       </tr>
                     {% endif %}  
@@ -81,7 +81,7 @@
                         <td>{{info.card_name}}</td>
                         <td>{{info.creator.username}}</td>
                         <td>Under Verification</td>
-                        <td class="d-flex justify-content-center"><a href="update_status.html" type="button" class="btn btn-primary mx-5">Verify</a>
+                        <td class="d-flex justify-content-center"><a href="/update_status/{{info.card_name}}/{{info.user_id}}" type="button" class="btn btn-primary mx-5">Verify</a>
                         <!-- <a href=""type="button" class="btn btn-primary">Generate</a></td> -->
                       </tr>
                     {% endif %}  
@@ -109,7 +109,7 @@
                         <td>{{info.card_name}}</td>
                         <td>{{info.creator.username}}</td>
                         <td>Verified</td>
-                        <td class="d-flex justify-content-center"><a href="update_status.html" type="button" class="btn btn-primary mx-5">Generate</a>
+                        <td class="d-flex justify-content-center"><a href="/generate/{{info.card_name}}/{{info.user_id}}" type="button" class="btn btn-primary mx-5">Generate</a>
                         <!-- <a href=""type="button" class="btn btn-primary">Generate</a></td> -->
                       </tr>
                     {% endif %}  
