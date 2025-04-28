@@ -182,3 +182,16 @@ def generate(card,user_id):
     db.session.add(info)
     db.session.commit()
     return redirect('/admin')
+
+@app.route('/view/<card>/<user_id>')
+def view_card(card,user_id):
+     details=Info.query.filter_by(user_id=user_id,card_name=card).all()
+     if card=='aadhar':
+         return render_template('view_aadhar.html',details=details)
+     if card=='pan':
+         return render_template('view_pan.html')
+     if card=='voterid':
+         return render_template('view_voterid.html')
+     if card=='driving':
+         return render_template('view_driving.html')
+     
