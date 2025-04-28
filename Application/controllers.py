@@ -1,6 +1,7 @@
 from flask import Flask,render_template,redirect,request
 from flask import current_app as app
 from .models import * #inheriting models module to make indirect connection with app.py
+from key_generator import aadhar_key,pan_key,driving_key,voter_key
 
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -164,3 +165,20 @@ def update_status(card,user_id):
         return redirect('/admin')
     return render_template('update_status.html',user_id=user_id,card=card,details=details)
 
+@app.route('/generate/<card>/<user_id>')
+def generate(card,user_id):
+    detail=Info.query.filter_by(card_name=card,user_id=user_id,attribute_name='Status').first()
+    detail.attribute_value='generated'
+    db.session.commit()
+    if card=='aadhar':
+        key=aadhar_key()
+    if card=='pan':
+        key=pan_key()
+    if card=='driving':
+        key=driving_key()
+    if card=='voterid':
+        key=voter_key()            
+    info=Info(card_name=card,user_id=user_id,attribute_name='key',attribute_value=key)
+    db.session.add(info)
+    db.session.commit()
+    return redirect('/admin')
