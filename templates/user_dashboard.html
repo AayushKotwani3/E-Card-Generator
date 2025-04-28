@@ -44,13 +44,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Aadhar</td>
-                    <td class="d-flex justify-content-center"><a href="" type="button" class="btn btn-info mx-1">View</a>
-                    <a href=""type="button" class="btn btn-danger">Delete</a></td>
-                  </tr>
-                  <tr>
+                  {% for info in this_user.details %}
+                    {% if info.attribute_value=='generated' %}
+                      <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{info.card_name}}</td>
+                        <td class="d-flex justify-content-center"><a href="/view/{{info.card_name}}/{{info.user_id}}" type="button" class="btn btn-info mx-1">View</a>
+                        <a href=""type="button" class="btn btn-danger">Delete</a></td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}  
+                  <!-- <tr>
                     <th scope="row">2</th>
                     <td>Pan Card</td>
                     <td class="d-flex justify-content-center"><a href="" type="button" class="btn btn-info mx-1">View</a>
@@ -61,7 +65,7 @@
                     <td>Driving License</td>
                     <td class="d-flex justify-content-center"><a href="" type="button" class="btn btn-info mx-1">View</a>
                     <a href=""type="button" class="btn btn-danger">Delete</a></td>
-                  </tr>
+                  </tr> -->
                 </tbody>
               </table>
               </div>
