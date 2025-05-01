@@ -189,9 +189,9 @@ def view_card(card,user_id):
      if card=='aadhar':
          return render_template('view_aadhar.html',details=details)
      if card=='pan':
-         return render_template('view_pan.html')
+         return render_template('view_pan.html',details=details)
      if card=='voterid':
-         return render_template('view_voterid.html')
+         return render_template('view_voterid.html',details=details)
      if card=='driving':
-         return render_template('view_driving.html')
+         return render_template('view_driving.html',details=details)
      
