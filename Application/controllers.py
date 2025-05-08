@@ -194,4 +194,13 @@ def view_card(card,user_id):
          return render_template('view_voterid.html',details=details)
      if card=='driving':
          return render_template('view_driving.html',details=details)
-     
+
+@app.route('/results')
+def search():
+    search_word=request.args.get('search')
+    key=request.args.get('key')
+    if key=='user':
+        results=User.query.filter_by(username=search_word).all()
+    else:
+        results=Info.query.filter_by(attribute_name='Status',card_name=search_word.lower()).all()
+    return render_template('results.html',results=results,key=key)        
