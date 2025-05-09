@@ -27,6 +27,9 @@
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/login">Log out</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/summary">summary</a>
+                  </li>
                 </ul>  
                 <form class="d-flex" action="/results">
                   <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -130,17 +133,17 @@
             <div class="d-flex justify-content-around text-center" style="margin-top: 40px;">
                 <div class="card bg-info p-3">
                     <h5>Users</h5>
-                    <h3>789</h3>
+                    <h3>{{users}}</h3>
                 </div>
-                <div class="card bg-info p-3">
+                <div class="card bg-danger p-3">
                     <h5>Requests</h5>
-                   <h3>209</h3>
+                   <h3>{{requests}}</h3>
                 </div>
-                <div class="card bg-info p-3">
+                <div class="card bg-success p-3">
                     <h5>Generated</h5>
-                    <h3>200</h3>
+                    <h3>{{generated}}</h3>
                 </div>
-                <div class="card bg-info p-3">
+                <div class="card bg-primary p-3">
                     <h5>Available cards</h5>
                     <h3>4</h3>
                 </div>        

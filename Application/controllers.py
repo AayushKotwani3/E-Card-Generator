@@ -41,7 +41,10 @@ def register():
 def admin_dash():
     this_user=User.query.filter_by(type='admin').first()
     all_info=Info.query.all()
-    return render_template('admin_dashboard.html',this_user=this_user,all_info=all_info)
+    users=len(User.query.all())
+    requests=len(Info.query.filter_by(attribute_value='requested').all())
+    generated=len(Info.query.filter_by(attribute_value='generated').all())
+    return render_template('admin_dashboard.html',this_user=this_user,all_info=all_info,users=users,requests=requests,generated=generated)
 
 @app.route('/home/<int:user_id>')
 def user_dashboard(user_id):
@@ -204,3 +207,29 @@ def search():
     else:
         results=Info.query.filter_by(attribute_name='Status',card_name=search_word.lower()).all()
     return render_template('results.html',results=results,key=key)        
+
+@app.route('/summary')
+def summary():
+    ra=len(Info.query.filter_by(attribute_value='requested',card_name='aadhar').all())
+    rp=len(Info.query.filter_by(attribute_value='requested',card_name='pan').all())
+    rd=len(Info.query.filter_by(attribute_value='requested',card_name='driving').all())
+    rv=len(Info.query.filter_by(attribute_value='requested',card_name='voterid').all())
+    #underverification
+    uva=len(Info.query.filter_by(attribute_value='under_verification',card_name='aadhar').all())
+    uvp=len(Info.query.filter_by(attribute_value='under_verification',card_name='pan').all())
+    uvd=len(Info.query.filter_by(attribute_value='under_verification',card_name='driving').all())
+    uvv=len(Info.query.filter_by(attribute_value='under_verification',card_name='voterid').all())
+    #verified
+    va=len(Info.query.filter_by(attribute_value='verified',card_name='aadhar').all())
+    vp=len(Info.query.filter_by(attribute_value='verified',card_name='pan').all())
+    vd=len(Info.query.filter_by(attribute_value='verified',card_name='driving').all())
+    vv=len(Info.query.filter_by(attribute_value='verified',card_name='voterid').all())
+    #Generated
+    ga=len(Info.query.filter_by(attribute_value='generated',card_name='aadhar').all())
+    gp=len(Info.query.filter_by(attribute_value='generated',card_name='pan').all())
+    gd=len(Info.query.filter_by(attribute_value='generated',card_name='driving').all())
+    gv=len(Info.query.filter_by(attribute_value='generated',card_name='voterid').all())
+    return render_template('summary.html',ra=ra,rp=rp,rd=rd,rv=rv,
+                                          uva=uva,uvp=uvp,uvd=uvd,uvv=uvv,
+                                          va=va,vp=vp,vd=vd,vv=vv,
+                                          ga=ga,gp=gp,gd=gd,gv=gv)
