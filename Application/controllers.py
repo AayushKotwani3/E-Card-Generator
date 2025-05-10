@@ -2,6 +2,9 @@ from flask import Flask,render_template,redirect,request
 from flask import current_app as app
 from .models import * #inheriting models module to make indirect connection with app.py
 from key_generator import aadhar_key,pan_key,driving_key,voter_key
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -229,6 +232,28 @@ def summary():
     gp=len(Info.query.filter_by(attribute_value='generated',card_name='pan').all())
     gd=len(Info.query.filter_by(attribute_value='generated',card_name='driving').all())
     gv=len(Info.query.filter_by(attribute_value='generated',card_name='voterid').all())
+
+    #Graph pie chart
+    labels=['Aadhar','Pan','Driving License','Voterid']
+    sizes=[ga,gp,gd,gv]
+    colours=['red','yellow','blue','green']
+    plt.pie(sizes,labels=labels,colors=colours,autopct="%1.1f%%")
+    plt.title('Generated Cards')
+    plt.savefig("static/pie.png")
+    plt.clf()
+
+    #bar graph
+    labels=['Aadhar','Pan','Driving License','Voterid']
+    sizes=[ra,rp,rd,rv]
+    plt.bar(labels,sizes)
+    plt.xlabel('Requested cards')
+    plt.ylabel('No of cards')
+    plt.title('No of Requested cards')
+    plt.savefig('static/bar.png')
+    plt.clf()
+    
+
+
     return render_template('summary.html',ra=ra,rp=rp,rd=rd,rv=rv,
                                           uva=uva,uvp=uvp,uvd=uvd,uvv=uvv,
                                           va=va,vp=vp,vd=vd,vv=vv,
